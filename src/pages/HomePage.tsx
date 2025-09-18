@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { Target, BarChart3, DollarSign, TrendingUp, Wheat, Sun, Cloud, Droplets, Wind, Eye } from 'lucide-react';
 import { Language } from '../types';
 import { useTranslations } from '../data/translations';
+import heroImage from "../assets/hero-farm.jpg";
 
 interface HomePageProps {
   language: Language;
@@ -35,12 +36,15 @@ export function HomePage({ language }: HomePageProps) {
     <div className="min-h-screen">
       {/* Hero Section */}
       <div className="relative h-80 bg-gradient-to-r from-green-500 to-green-600 overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1500937384667-5f1b2f79f6d6?auto=format&fit=crop&w=1600&q=60')"
-          }}
-        />
+        <div
+  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+  style={{
+    // We add a semi-transparent black gradient on top of the image
+    // This darkens the image, making white text more readable,
+    // just like in your example.
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${heroImage})`,
+  }}
+/>
         <div className="relative z-10 flex items-center justify-center h-full">
           <div className="text-center text-white px-4 max-w-4xl">
             <h1 className="text-3xl md:text-4xl font-semibold mb-3">
